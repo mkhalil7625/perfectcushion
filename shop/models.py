@@ -18,8 +18,8 @@ class Category(models.Model):
 
 
   #to return a representation of the model
-        def __str__(self):
-            return '{}'.format(self.name)
+    def __str__(self):
+        return '{}'.format(self.name)
         #   get url function for categories
 
     def get_url(self):
@@ -46,8 +46,8 @@ class Product(models.Model):
         verbose_name_plural = 'products'
 
         # to return a representation of the model
-        def __str__(self):
-            return '{}'.format(self.name)
+    def __str__(self):
+        return '{}'.format(self.name)
 
     def get_url(self):
         return reverse('shop:ProdCatDetail', args=[self.category.slug, self.slug])
