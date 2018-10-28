@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block metadescription %}
+	We have a variety of stunning and comfy cushions. Look for the one that suits your needs.
+{% endblock %}
+{% block title %}
+	Search - Perfect Cushion Store
+{% endblock %}
+{% block content %}
+    <div>
+        <p>You have searched for: <b>"{{ query }}"</b></p>
+    </div>
+    <div>
+		<div>
+			{% for product in products %}
+				<div>
+					<div>
+						<a href="{{product.get_url}}"><img src="{{product.image.url}}" alt="{{product.name}}"></a>
+						<div>
+							<h4>{{product.name}}</h4>
+							<p>S{{product.price}}</p>
+						</div>
+					</div>
+				</div>
+                {% empty %}
+                <div>
+                <p>0 Results Found</p>
+                </div>
+			{% endfor %}
+		</div>
+    </div>
+
+
+{% endblock %}
