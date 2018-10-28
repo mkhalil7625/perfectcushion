@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop',
     'search_app',
+    'cart',
+    'crispy_forms',
+    'stripe',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +59,7 @@ ROOT_URLCONF = 'perfectcushion.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'shop', 'templates/'), os.path.join(BASE_DIR, 'search_app', 'templates/')]
+        'DIRS': [os.path.join(BASE_DIR,'shop','templates/'), os.path.join(BASE_DIR,'search_app','templates/'), os.path.join(BASE_DIR, 'cart', 'templates/'),]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -128,3 +131,8 @@ STATICFILES_DIRS = (
 )
 MEDIA_URL = '/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR,'static','media')
+# Stripe Settings
+STRIPE_PUBLISHABLE_KEY =  os.environ.get("STRIPE_PUB_KEY")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SEC_KEY")
+# crispy
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
